@@ -97,3 +97,43 @@ function confirmGenerate() {
 		});
 	});
 }
+
+function confirmAbsenMasuk() {
+	return new Promise(function (resolve, reject) {
+		swal({
+			title: "Anda Yakin Ingin Melakukan Absen Masuk?",
+			text: "Klik CANCEL jika ingin membatalkan!",
+			icon: "warning",
+			buttons: true,
+			dangerMode: true,
+		}).then((Oke) => {
+			if (Oke) {
+				return resolve(true);
+			} else {
+				swal("Poof!", "Penyimpanan Data Dibatalkan", "error").then((value) => {
+					return reject;
+				})
+			}
+		});
+	});
+}
+
+function confirmAbsenPulang() {
+	return new Promise(function (resolve, reject) {
+		swal({
+			title: "Anda Yakin Ingin Melakukan Absen Pulang?",
+			text: "Klik CANCEL jika ingin membatalkan!",
+			icon: "warning",
+			buttons: true,
+			dangerMode: true,
+		}).then((Oke) => {
+			if (Oke) {
+				return resolve(true);
+			} else {
+				swal("Poof!", "Penyimpanan Data Dibatalkan", "error").then((value) => {
+					return reject;
+				})
+			}
+		});
+	});
+}

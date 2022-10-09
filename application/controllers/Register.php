@@ -68,6 +68,7 @@ class Register extends CI_Controller
 			'level_id' => 3,
 			'nama' => $data['biodata_prakerin_nama'],
 			'Instansi' => $this->m->get_instansi()->instansi_id,
+			'AppLogo' => $this->m->get_instansi()->instansi_logo,
 			'AppInfo' => $this->m->get_sysinfo()->info_name . ' ' . $this->m->get_instansi()->instansi_nama,
 			'DevInfo' => $this->m->get_sysinfo()->info_devs,
 			'UrlDev' => $this->m->get_sysinfo()->info_devs_url,

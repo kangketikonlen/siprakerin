@@ -67,6 +67,7 @@ class Portal extends CI_Controller
 			'level' => $data['level_nama'],
 			'parents' => $data['user_parents'],
 			'Instansi' => $this->m->get_instansi()->instansi_id,
+			'AppLogo' => $this->m->get_instansi()->instansi_logo,
 			'AppInfo' => $this->m->get_sysinfo()->info_name . ' ' . $this->m->get_instansi()->instansi_nama,
 			'DevInfo' => $this->m->get_sysinfo()->info_devs,
 			'UrlDev' => $this->m->get_sysinfo()->info_devs_url,
