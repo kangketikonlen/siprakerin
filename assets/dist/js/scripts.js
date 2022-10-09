@@ -53,7 +53,7 @@ function populateOption(optID, data) {
 	});
 }
 
-function pesan(kode, status, pesan, table) {
+function pesan(kode, status, pesan, table, uri) {
 	swal(String(kode), String(pesan), String(status)).then(() => {
 		if (table) {
 			$("#dtTable").DataTable().ajax.reload(function () {
@@ -61,7 +61,11 @@ function pesan(kode, status, pesan, table) {
 			}, false);
 			$("#frmData").modal('hide');
 		} else {
-			location.reload();
+			if (uri) {
+				window.location.href = uri;
+			} else {
+				location.reload();
+			}
 		}
 	});
 }

@@ -1,5 +1,15 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
+function custom_failed($msg)
+{
+	$pesan = array(
+		'warning' => 'Gagal!',
+		'kode' => 'error',
+		'pesan' => $msg
+	);
+	return json_encode($pesan);
+}
+
 function save_success()
 {
 	$pesan = array(
