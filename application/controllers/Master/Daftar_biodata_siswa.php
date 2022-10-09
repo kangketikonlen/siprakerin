@@ -31,44 +31,9 @@ class Daftar_biodata_siswa extends MY_Controller
 		echo $this->m->get_list_data();
 	}
 
-	public function simpan()
-	{
-		$data = $this->input->post();
-		if (empty($data['samples_id'])) {
-			$data['created_by'] = $this->session->userdata('nama');
-			$data['created_date'] = date('Y-m-d H:i:s');
-			$this->m->simpan($data);
-
-			echo save_success();
-		} else {
-			$data['updated_by'] = $this->session->userdata('nama');
-			$data['updated_date'] = date('Y-m-d H:i:s');
-			$this->m->edit($data);
-
-			echo update_success();
-		}
-	}
-
 	public function get_data()
 	{
 		$result = $this->m->get_data();
 		echo json_encode($result);
-	}
-
-	public function hapus()
-	{
-		$data = array(
-			'deleted' => TRUE,
-			'updated_by' => $this->session->userdata('nama'),
-			'updated_date' => date('Y-m-d H:i:s')
-		);
-		$this->m->hapus($data);
-		echo delete_success();
-	}
-
-	public function options()
-	{
-		$response = $this->m->options();
-		echo json_encode($response);
 	}
 }

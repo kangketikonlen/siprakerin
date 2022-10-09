@@ -1,50 +1,20 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 class Daftar_biodata_siswa_model extends CI_Model
 {
-	protected $samples = "ak_data_system_samples";
+	protected $biodata_prakerin = "ak_data_master_biodata_prakerin";
 
 	public function get_list_data()
 	{
-		$this->datatables->select('samples_id, samples_nama');
-		$this->datatables->from($this->samples);
-		$this->datatables->where($this->samples . '.deleted', FALSE);
-		$this->datatables->add_column('view', "<button id='edit' class='m-1 btn btn-sm btn-primary' data='$1'><i class='fa fa-pencil-alt'></i></button> <button id='hapus' class='m-1 btn btn-sm btn-danger' data='$1'><i class='fa fa-trash'></i></button>", "samples_id");
+		$this->datatables->select('biodata_prakerin_id, biodata_prakerin_user_login, biodata_prakerin_nama');
+		$this->datatables->from($this->biodata_prakerin);
+		$this->datatables->where($this->biodata_prakerin . '.deleted', FALSE);
+		$this->datatables->add_column('view', "<button id='btn-detail' class='m-1 btn btn-block btn-info' data='$1'><i class='fa fa-clipboard'></i> Detail</button>", "biodata_prakerin_id");
 		return $this->datatables->generate();
-	}
-
-	public function simpan($data)
-	{
-		return $this->db->insert($this->samples, $data);
 	}
 
 	public function get_data()
 	{
-		$this->db->where($this->samples . '.samples_id', $this->input->get('samples_id'));
-		return $this->db->get($this->samples)->row();
-	}
-
-	public function edit($data)
-	{
-		$this->db->where($this->samples . '.samples_id', $this->input->post('samples_id'));
-		return $this->db->update($this->samples, $data);
-	}
-
-	public function hapus($data)
-	{
-		$this->db->where($this->samples . '.samples_id', $this->input->get('samples_id'));
-		return $this->db->update($this->samples, $data);
-	}
-
-	public function options()
-	{
-		$this->db->where($this->samples . '.deleted', FALSE);
-		$opt = $this->db->get($this->samples)->result();
-
-		$data = array();
-		foreach ($opt as $opt) {
-			$data[] = array("id" => $opt->samples_id, "text" => $opt->samples_nama);
-		}
-
-		return $data;
+		$this->db->where($this->biodata_prakerin . '.biodata_prakerin_id', $this->input->get('biodata_prakerin_id'));
+		return $this->db->get($this->biodata_prakerin)->row();
 	}
 }
