@@ -137,3 +137,43 @@ function confirmAbsenPulang() {
 		});
 	});
 }
+
+function confirmApprove() {
+	return new Promise(function (resolve, reject) {
+		swal({
+			title: "Anda Yakin Ingin Menyetujui Data?",
+			text: "Klik CANCEL jika ingin membatalkan!",
+			icon: "warning",
+			buttons: true,
+			dangerMode: true,
+		}).then((Oke) => {
+			if (Oke) {
+				return resolve(true);
+			} else {
+				swal("Poof!", "Penyimpanan Data Dibatalkan", "error").then((value) => {
+					return reject;
+				})
+			}
+		});
+	});
+}
+
+function confirmDisapprove() {
+	return new Promise(function (resolve, reject) {
+		swal({
+			title: "Anda Yakin Ingin Membatalkan Data Tersetujui?",
+			text: "Klik CANCEL jika ingin membatalkan!",
+			icon: "warning",
+			buttons: true,
+			dangerMode: true,
+		}).then((Oke) => {
+			if (Oke) {
+				return resolve(true);
+			} else {
+				swal("Poof!", "Penyimpanan Data Dibatalkan", "error").then((value) => {
+					return reject;
+				})
+			}
+		});
+	});
+}

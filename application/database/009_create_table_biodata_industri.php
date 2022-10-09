@@ -49,10 +49,12 @@ class Migration_Create_table_biodata_industri extends CI_Migration
 				'null' => TRUE
 			),
 			$this->prefix . 'tanggal_mulai' => array(
-				'type' => 'DATE'
+				'type' => 'DATE',
+				'null' => TRUE
 			),
 			$this->prefix . 'tanggal_selesai' => array(
-				'type' => 'DATE'
+				'type' => 'DATE',
+				'null' => TRUE
 			),
 			'created_by' => array(
 				'type' => 'VARCHAR',
