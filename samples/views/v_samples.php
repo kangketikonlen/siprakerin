@@ -1,8 +1,8 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="card">
-			<div class="card-body">
-				<table id="dtTable" class="table table-sm table-bordered">
+			<div class="card-body table-responsive">
+				<table id="dtTable" class="table table-sm table-bordered table-hover text-nowrap">
 					<thead>
 						<th>No.</th>
 						<th>Nama</th>
@@ -32,13 +32,13 @@
 						<div class="form-group">
 							<label for="samples_nama">Nama</label>
 							<input type="hidden" name="samples_id" id="samples_id">
-							<input type="text" name="samples_nama" id="samples_nama" class="form-control form-control-sm" placeholder="Masukkan nama samples..." autocomplete="off" required="true">
+							<input type="text" name="samples_nama" id="samples_nama" class="form-control form-control-sm" autocomplete="off" required="true">
 						</div>
 					</div>
-					<div class="col-lg-6">
+					<div class="col-lg-12">
 						<div class="form-group">
 							<label for="samples_deskripsi">Deskripsi</label>
-							<input type="text" name="samples_deskripsi" id="samples_deskripsi" class="form-control form-control-sm" placeholder="Masukkan deksripsi samples..." autocomplete="off" required="true">
+							<input type="text" name="samples_deskripsi" id="samples_deskripsi" class="form-control form-control-sm" autocomplete="off" required="true">
 						</div>
 					</div>
 					<div class="col-lg-12">
