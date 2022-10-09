@@ -5,6 +5,7 @@ class Register_model extends CI_Model
 	protected $instansi = "ak_data_system_instansi";
 	protected $siswa = "ak_data_master_siswa";
 	protected $biodata_prakerin = "ak_data_master_biodata_prakerin";
+	protected $pembimbing_sekolah = "ak_data_master_pembimbing_sekolah";
 
 	public function get_sysinfo()
 	{
@@ -35,6 +36,12 @@ class Register_model extends CI_Model
 	{
 		$this->db->where($this->biodata_prakerin . '.biodata_prakerin_user_login', $this->input->get('username'));
 		return $this->db->get($this->biodata_prakerin)->row_array();
+	}
+
+	public function check_data_pembimbing()
+	{
+		$this->db->where($this->pembimbing_sekolah . '.pembimbing_sekolah_user_login', $this->input->get('username'));
+		return $this->db->get($this->pembimbing_sekolah)->row_array();
 	}
 
 	public function simpan($data)

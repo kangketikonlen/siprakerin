@@ -54,27 +54,52 @@ class Register extends CI_Controller
 	{
 		$data = $this->m->check_data();
 		if (!empty($data)) {
-			$this->simpan_session($data);
+			$this->simpan_session_siswa($data);
 			redirect(base_url());
 		} else {
-			redirect(base_url('register?user=' . $this->input->get('username')));
+			$data = $this->m->check_data_pembimbing();
+			if (!empty($data)) {
+				$this->simpan_session_staff($data);
+				redirect(base_url());
+			} else {
+				redirect(base_url('register?user=' . $this->input->get('username')));
+			}
 		}
 	}
 
-	public function simpan_session($data)
+	private function default_session()
 	{
 		$session = array(
-			'id' => $data['biodata_prakerin_id'],
-			'level_id' => 3,
-			'nama' => $data['biodata_prakerin_nama'],
 			'Instansi' => $this->m->get_instansi()->instansi_id,
 			'AppLogo' => $this->m->get_instansi()->instansi_logo,
 			'AppInfo' => $this->m->get_sysinfo()->info_name . ' ' . $this->m->get_instansi()->instansi_nama,
 			'DevInfo' => $this->m->get_sysinfo()->info_devs,
 			'UrlDev' => $this->m->get_sysinfo()->info_devs_url,
-			'UrlDash' => 'dashboard/siswa',
 			'LoggedIn' => TRUE
 		);
+
+		return $session;
+	}
+
+	private function simpan_session_siswa($data)
+	{
+		$session = $this->default_session();
+		$session['id'] = $data['biodata_prakerin_id'];
+		$session['nama'] = $data['biodata_prakerin_nama'];
+		$session['level_id'] = 3;
+		$session['UrlDash'] = 'dashboard/siswa';
+
+		$this->session->set_userdata($session);
+	}
+
+	private function simpan_session_staff($data)
+	{
+		$session = $this->default_session();
+		$session['id'] = $data['pembimbing_sekolah_id'];
+		$session['nama'] = $data['pembimbing_sekolah_nama'];
+		$session['level_id'] = 4;
+		$session['UrlDash'] = 'dashboard/staff';
+
 		$this->session->set_userdata($session);
 	}
 }
