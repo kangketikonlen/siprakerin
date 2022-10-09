@@ -14,7 +14,7 @@ class Siswa extends MY_Dashboard
 		$data['Breadcrumb'] = array();
 		$data['Template'] = "templates/private";
 		$data['Components'] = array(
-			'main' => "/v_private",
+			'main' => "/v_private_topbar",
 			'header' => $data['Template'] . "/components/v_header",
 			'sidebar' => $data['Template'] . "/components/v_sidebar",
 			'navbar' => $data['Template'] . "/components/v_navbar",
