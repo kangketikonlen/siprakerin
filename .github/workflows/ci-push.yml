@@ -1,0 +1,33 @@
+on:
+  push:
+    branches: [main]
+
+name: 🖥 Push to server
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: 🖥 Running Push Script
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        with:
+          host: ${{ secrets.PROD_SERVER }}
+          user: ${{ secrets.PROD_USERNAME }}
+          pass: ${{ secrets.PROD_PASSWORD }}
+          port: ${{ secrets.PROD_PORT }}
+          connect_timeout: 60s
+          first_ssh: |
+            cd ${{ secrets.PROD_REPO_DIR }} && git stash && git fetch -p && git pull && composer update
+          last_ssh: |
+            chmod -R 0777 ${{ secrets.PROD_REPO_DIR }}/assets/
+            chmod -R 0777 ${{ secrets.PROD_REPO_DIR }}/vendor/mpdf/mpdf/tmp/
+            chmod -R 0777 ${{ secrets.PROD_REPO_DIR }}/application/logs/
+            rsync -a --progress ${{ secrets.PROD_REPO_DIR }}/application ${{ secrets.PROD_ROOT_DIR }}
+            rsync -a --progress ${{ secrets.PROD_REPO_DIR }}/assets ${{ secrets.PROD_ROOT_DIR }}
+            rsync -a --progress ${{ secrets.PROD_REPO_DIR }}/system ${{ secrets.PROD_ROOT_DIR }}
+            rsync -a --progress ${{ secrets.PROD_REPO_DIR }}/vendor ${{ secrets.PROD_ROOT_DIR }}
+            rsync -a --progress ${{ secrets.PROD_REPO_DIR }}/index.php ${{ secrets.PROD_ROOT_DIR }}
+            rsync -a --progress ${{ secrets.PROD_REPO_DIR }}/.htaccess ${{ secrets.PROD_ROOT_DIR }}
+            rsync -a --progress ${{ secrets.PROD_REPO_DIR }}/Robots.txt ${{ secrets.PROD_ROOT_DIR }}

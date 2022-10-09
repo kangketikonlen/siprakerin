@@ -1,0 +1,12 @@
+# Files Extensions
+.DS_Store
+.env
+
+# Folders
+application/cache/*
+application/logs/*.moe
+application/config/development/*
+assets/files/*.xlsx
+.vscode/
+.well-known/
+/vendor/
