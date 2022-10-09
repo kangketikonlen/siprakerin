@@ -66,19 +66,15 @@
 		$(document).on('click', '#btn-qrcode', function() {
 			var dataUrl = "<?= base_url('administrasi/kelola_kehadiran/generate_qrcode?') ?>";
 			var id = $(this).attr("data");
-			confirmUpdate().then(function(response) {
-				if (response) {
-					requests(dataUrl + encodeURI("id=" + id), "GET", {}).then(function(results) {
-						var data = JSON.parse(results);
-						$("#frmData").modal({
-							backdrop: "static",
-							keyboard: false
-						});
-						$("#qrcode-images", $("#qrcode")).attr("src", data.qrcode)
-					}).catch(function(e) {
-						pesan("Error " + e.status, "error", e.statusText);
-					})
-				}
+			requests(dataUrl + encodeURI("id=" + id), "GET", {}).then(function(results) {
+				var data = JSON.parse(results);
+				$("#frmData").modal({
+					backdrop: "static",
+					keyboard: false
+				});
+				$("#qrcode-images", $("#qrcode")).attr("src", data.qrcode)
+			}).catch(function(e) {
+				pesan("Error " + e.status, "error", e.statusText);
 			})
 		});
 	});

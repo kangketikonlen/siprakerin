@@ -50,18 +50,6 @@
 									<input type="text" name="biodata_industri_nama_pembimbing_2" id="biodata_industri_nama_pembimbing_2" class="form-control" autocomplete="off">
 								</div>
 							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label for="biodata_industri_tanggal_mulai">Tanggal Mulai</label>
-									<input type="date" name="biodata_industri_tanggal_mulai" id="biodata_industri_tanggal_mulai" class="form-control" autocomplete="off">
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group">
-									<label for="biodata_industri_tanggal_selesai">Tanggal Selesai</label>
-									<input type="date" name="biodata_industri_tanggal_selesai" id="biodata_industri_tanggal_selesai" class="form-control" autocomplete="off">
-								</div>
-							</div>
 						</div>
 					</div>
 					<!-- End form data industri -->
