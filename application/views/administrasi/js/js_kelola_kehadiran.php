@@ -21,7 +21,7 @@
 			{
 				render: function(data, type, row, meta) {
 					if (row[4]) {
-						return row[4];
+						return truncate(row[4], 5);
 					} else {
 						return `<button type="button" id="btn-qrcode" class="btn btn-link" data="` + row[0] + `">Show QRCode</button>`
 					}

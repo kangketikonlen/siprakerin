@@ -5,7 +5,7 @@ class Kelola_kehadiran_model extends CI_Model
 
 	public function get_list_data()
 	{
-		$this->datatables->select('histori_kehadiran_id, histori_kehadiran_tanggal, histori_kehadiran_jam_masuk, histori_kehadiran_jam_pulang, histori_kehadiran_validitor');
+		$this->datatables->select('histori_kehadiran_id, histori_kehadiran_tanggal, histori_kehadiran_jam_masuk, histori_kehadiran_jam_pulang, histori_kehadiran_validator');
 		$this->datatables->from($this->histori_kehadiran);
 		$this->datatables->where($this->histori_kehadiran . '.biodata_pendaftar_id', $this->session->userdata('id'));
 		$this->datatables->where($this->histori_kehadiran . '.deleted', FALSE);

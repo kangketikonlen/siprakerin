@@ -5,7 +5,7 @@ class Kelola_agenda_kegiatan_model extends CI_Model
 
 	public function get_list_data()
 	{
-		$this->datatables->select('histori_agenda_kegiatan_id, histori_agenda_kegiatan_tanggal, histori_agenda_kegiatan_pekerjaan, histori_agenda_kegiatan_validitor');
+		$this->datatables->select('histori_agenda_kegiatan_id, histori_agenda_kegiatan_tanggal, histori_agenda_kegiatan_pekerjaan, histori_agenda_kegiatan_validator');
 		$this->datatables->from($this->histori_agenda_kegiatan);
 		$this->datatables->where($this->histori_agenda_kegiatan . '.deleted', FALSE);
 		$this->datatables->add_column('view', "<button id='edit' class='m-1 btn btn-sm btn-primary' data='$1'><i class='fa fa-pencil-alt'></i></button> <button id='hapus' class='m-1 btn btn-sm btn-danger' data='$1'><i class='fa fa-trash'></i></button>", "histori_agenda_kegiatan_id");

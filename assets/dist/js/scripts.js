@@ -26,6 +26,10 @@ function tgl_indo(tgl) {
 	return hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun;
 }
 
+function truncate(str, n) {
+	return (str.length > n) ? str.slice(0, n - 1) + '&hellip;' + str.slice(-n + 1) : str;
+};
+
 function number_format(nStr) {
 	nStr += '';
 	x = nStr.split('.');
