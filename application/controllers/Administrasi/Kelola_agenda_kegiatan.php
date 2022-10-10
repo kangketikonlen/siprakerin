@@ -42,7 +42,7 @@ class Kelola_agenda_kegiatan extends MY_Controller
 	{
 		$data = $this->input->post();
 		if (empty($data['histori_agenda_kegiatan_id'])) {
-			$data['biodata_pendaftar_id'] = $this->session->userdata('id');
+			$data['biodata_prakerin_id'] = $this->session->userdata('id');
 			$data['created_by'] = $this->session->userdata('nama');
 			$data['created_date'] = date('Y-m-d H:i:s');
 			$this->m->simpan($data);

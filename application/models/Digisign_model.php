@@ -28,14 +28,14 @@ class Digisign_model extends CI_Model
 
 	public function get_data()
 	{
-		$this->db->join($this->biodata_prakerin, $this->biodata_prakerin . '.biodata_prakerin_id=' . $this->histori_kehadiran . '.biodata_pendaftar_id');
+		$this->db->join($this->biodata_prakerin, $this->biodata_prakerin . '.biodata_prakerin_id=' . $this->histori_kehadiran . '.biodata_prakerin_id');
 		$this->db->where($this->histori_kehadiran . '.histori_kehadiran_id', $this->input->get('id'));
 		return $this->db->get($this->histori_kehadiran)->row_array();
 	}
 
 	public function get_data_agenda()
 	{
-		$this->db->join($this->biodata_prakerin, $this->biodata_prakerin . '.biodata_prakerin_id=' . $this->histori_agenda_kegiatan . '.biodata_pendaftar_id');
+		$this->db->join($this->biodata_prakerin, $this->biodata_prakerin . '.biodata_prakerin_id=' . $this->histori_agenda_kegiatan . '.biodata_prakerin_id');
 		$this->db->where($this->histori_agenda_kegiatan . '.histori_agenda_kegiatan_id', $this->input->get('id'));
 		return $this->db->get($this->histori_agenda_kegiatan)->row_array();
 	}

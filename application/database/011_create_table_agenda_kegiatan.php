@@ -14,7 +14,7 @@ class Migration_Create_table_agenda_kegiatan extends CI_Migration
 				'unsigned' => TRUE,
 				'auto_increment' => TRUE
 			),
-			'biodata_pendaftar_id' => array(
+			'biodata_prakerin_id' => array(
 				'type' => 'BIGINT',
 				'constraint' => 20,
 				'unsigned' => TRUE,

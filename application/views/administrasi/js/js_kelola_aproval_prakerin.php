@@ -39,7 +39,7 @@
 			},
 			{
 				render: function(data, type, row, meta) {
-					if (row[6] == "Menunggu Persetujuan") {
+					if (row[6] == "Proses") {
 						return `<button id='btn-approve' class='btn btn-block btn-flat btn-primary' data='` + row[0] + `'>Setujui</button>`;
 					} else if (row[6] == "Disetujui") {
 						return `<button id='btn-disapprove' class='btn btn-block btn-flat btn-info' data='` + row[0] + `' data-id='` + row[1] + `'>Batalkan</button>`;
@@ -94,7 +94,7 @@
 			var dataUrl = "<?= base_url('administrasi/kelola_aproval_prakerin/set_disapprove?') ?>";
 			var dataReq = new FormData();
 			dataReq.append("biodata_industri_id", $(this).attr("data"))
-			dataReq.append("biodata_pendaftar_id", $(this).attr("data-id"))
+			dataReq.append("biodata_prakerin_id", $(this).attr("data-id"))
 			confirmDisapprove().then(function(response) {
 				if (response) {
 					requests(dataUrl, "POST", dataReq).then(function(result) {
@@ -110,7 +110,7 @@
 		$(document).on('click', '#btn-bioprakerin', function() {
 			var dataUrl = "<?= base_url('administrasi/kelola_aproval_prakerin/get_data_prakerin?') ?>";
 			var id = $(this).attr("data");
-			requests(dataUrl + encodeURI("biodata_pendaftar_id=" + id), "GET", {}).then(function(results) {
+			requests(dataUrl + encodeURI("biodata_prakerin_id=" + id), "GET", {}).then(function(results) {
 				$("#modal-bioprakerin").modal({
 					backdrop: "static",
 					keyboard: false

@@ -31,7 +31,7 @@
 						<div class="form-group">
 							<label for="biodata_industri_tanggal_mulai">Periode Mulai</label>
 							<input type="hidden" name="biodata_industri_id" id="biodata_industri_id">
-							<input type="hidden" name="biodata_pendaftar_id" id="biodata_pendaftar_id">
+							<input type="hidden" name="biodata_prakerin_id" id="biodata_prakerin_id">
 							<input type="date" name="biodata_industri_tanggal_mulai" id="biodata_industri_tanggal_mulai" class="form-control form-control-sm" autocomplete="off" required="true">
 						</div>
 					</div>

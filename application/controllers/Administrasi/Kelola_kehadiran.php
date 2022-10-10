@@ -43,7 +43,7 @@ class Kelola_kehadiran extends MY_Controller
 		$data = $this->input->post();
 		$is_exists = $this->m->check_data();
 		if (empty($is_exists)) {
-			$data['biodata_pendaftar_id'] = $this->session->userdata('id');
+			$data['biodata_prakerin_id'] = $this->session->userdata('id');
 			$data['histori_kehadiran_tanggal'] = date("Y-m-d");
 			$data['histori_kehadiran_jam_masuk'] = date("H:i:s");
 			$data['created_by'] = $this->session->userdata('nama');

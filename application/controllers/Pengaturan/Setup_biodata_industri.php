@@ -29,7 +29,7 @@ class Setup_biodata_industri extends MY_Controller
 	{
 		$data = $this->input->post();
 		if (empty($data['biodata_industri_id'])) {
-			$data['biodata_pendaftar_id'] = $this->session->userdata('id');
+			$data['biodata_prakerin_id'] = $this->session->userdata('id');
 			$data['created_by'] = $this->session->userdata('nama');
 			$data['created_date'] = date('Y-m-d H:i:s');
 			$this->m->simpan($data);

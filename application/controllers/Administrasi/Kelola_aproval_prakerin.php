@@ -61,7 +61,7 @@ class Kelola_aproval_prakerin extends MY_Controller
 
 	public function set_disapprove()
 	{
-		$data['biodata_prakerin_status'] = "Menunggu Persetujuan";
+		$data['biodata_prakerin_status'] = "Proses";
 		$data['updated_by'] = $this->session->userdata('nama');
 		$data['updated_date'] = date('Y-m-d H:i:s');
 		$this->m->edit_prakerin($data);

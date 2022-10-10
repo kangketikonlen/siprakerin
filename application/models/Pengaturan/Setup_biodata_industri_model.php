@@ -10,7 +10,7 @@ class Setup_biodata_industri_model extends CI_Model
 
 	public function get_data()
 	{
-		$this->db->where($this->biodata_industri . '.biodata_pendaftar_id', $this->session->userdata('id'));
+		$this->db->where($this->biodata_industri . '.biodata_prakerin_id', $this->session->userdata('id'));
 		return $this->db->get($this->biodata_industri)->row();
 	}
 

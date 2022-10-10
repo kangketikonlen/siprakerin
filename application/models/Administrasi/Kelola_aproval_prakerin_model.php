@@ -6,9 +6,9 @@ class Kelola_aproval_prakerin_model extends CI_Model
 
 	public function get_list_data()
 	{
-		$this->datatables->select('biodata_industri_id, biodata_prakerin_id, biodata_prakerin_nama, biodata_industri_nama, biodata_industri_tanggal_mulai, biodata_industri_tanggal_selesai, biodata_prakerin_status');
+		$this->datatables->select('biodata_industri_id, ' . $this->biodata_prakerin . '.biodata_prakerin_id, biodata_prakerin_nama, biodata_industri_nama, biodata_industri_tanggal_mulai, biodata_industri_tanggal_selesai, biodata_prakerin_status');
 		$this->datatables->from($this->biodata_industri);
-		$this->datatables->join($this->biodata_prakerin, $this->biodata_prakerin . '.biodata_prakerin_id=' . $this->biodata_industri . '.biodata_pendaftar_id');
+		$this->datatables->join($this->biodata_prakerin, $this->biodata_prakerin . '.biodata_prakerin_id=' . $this->biodata_industri . '.biodata_prakerin_id');
 		$this->datatables->where($this->biodata_industri . '.deleted', FALSE);
 		return $this->datatables->generate();
 	}
@@ -26,13 +26,13 @@ class Kelola_aproval_prakerin_model extends CI_Model
 
 	public function get_data_prakerin()
 	{
-		$this->db->where($this->biodata_prakerin . '.biodata_prakerin_id', $this->input->get('biodata_pendaftar_id'));
+		$this->db->where($this->biodata_prakerin . '.biodata_prakerin_id', $this->input->get('biodata_prakerin_id'));
 		return $this->db->get($this->biodata_prakerin)->row();
 	}
 
 	public function edit_prakerin($data)
 	{
-		$this->db->where($this->biodata_prakerin . '.biodata_prakerin_id', $this->input->post('biodata_pendaftar_id'));
+		$this->db->where($this->biodata_prakerin . '.biodata_prakerin_id', $this->input->post('biodata_prakerin_id'));
 		return $this->db->update($this->biodata_prakerin, $data);
 	}
 
