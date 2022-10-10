@@ -29,6 +29,12 @@ class Kelola_agenda_kegiatan extends MY_Controller
 			'content' => "administrasi/v_kelola_agenda_kegiatan",
 			'javascript' => 'administrasi/js/js_kelola_agenda_kegiatan'
 		);
+
+		$status = $this->global->get_status();
+		if ($status->biodata_prakerin_status != "Disetujui") {
+			$data['Components']['content'] = "v_forbidden";
+		}
+
 		$this->load->view('v_main', $data);
 	}
 

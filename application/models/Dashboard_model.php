@@ -4,6 +4,7 @@ class Dashboard_model extends CI_Model
 	protected $menu = "ak_data_system_menu";
 	protected $submenu = "ak_data_system_menu_sub";
 	protected $hak_akses = "ak_data_system_hak_akses";
+	protected $biodata_prakerin = "ak_data_master_biodata_prakerin";
 
 	public function get_menu()
 	{
@@ -32,5 +33,11 @@ class Dashboard_model extends CI_Model
 		$this->db->where($this->hak_akses . '.level_id', $this->session->userdata('level_id'));
 		$this->db->join($this->submenu, $this->submenu . '.submenu_id=' . $this->hak_akses . '.submenu_id');
 		return $this->db->get($this->hak_akses)->row();
+	}
+
+	public function get_status()
+	{
+		$this->db->where($this->biodata_prakerin . '.biodata_prakerin_id', $this->session->userdata('id'));
+		return $this->db->get($this->biodata_prakerin)->row();
 	}
 }

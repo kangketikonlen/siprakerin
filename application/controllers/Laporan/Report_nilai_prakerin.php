@@ -29,11 +29,18 @@ class Report_nilai_prakerin extends MY_Controller
 			'content' => "laporan/v_report_nilai_prakerin",
 			'javascript' => 'laporan/js/js_report_nilai_prakerin'
 		);
+
+		$status = $this->global->get_status();
+		if ($status->biodata_prakerin_status != "Disetujui") {
+			$data['Components']['content'] = "v_forbidden";
+		}
+
 		$data['aspek'] = $this->aspek_nilai();
 		$data['nilai'] = $this->angka_nilai();
 		$data['jumlah_nilai'] = 0;
 		$data['jumlah_aspek'] = count($this->aspek_nilai());
 		$data['qrcode'] = $this->create_qrcode();
+		$data['prakerin'] = $this->m->get_data_prakerin();
 		$this->load->view('v_main', $data);
 	}
 

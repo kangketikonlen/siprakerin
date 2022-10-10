@@ -49,7 +49,16 @@
 						</table>
 					</div>
 					<div id="qrcode" class="col-4">
-						<img id="qrcode-images" class="img-responsive w-100" src="<?= $qrcode ?>" alt="qrcode_images" />
+						<?php if ($prakerin['biodata_industri_tanggal_selesai'] <= date("Y-m-d")) : ?>
+							<img id="qrcode-images" class="img-responsive w-100" src="<?= $qrcode ?>" alt="qrcode_images" />
+						<?php else : ?>
+							<p class="text-sm text-justify">
+								Helo, <strong class="text-teal"><?= $this->session->userdata('nama') ?></strong> QRCode penilaian untuk di isi oleh pembimbingmu, akan keluar pada saat tanggal prakerinmu selesai. Silahkan tunjukkan QRCode tersebut kepada pembimbing dan minta lah pembimbingmu untuk scan QRCode tersebut dan mengisi formulir penilaian. Terima kasih
+							</p>
+							<p class="text-center h4">
+								<i class="far fa-2x fa-smile text-teal"></i>
+							</p>
+						<?php endif ?>
 					</div>
 				</div>
 			</div>
