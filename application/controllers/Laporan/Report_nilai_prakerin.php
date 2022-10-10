@@ -24,7 +24,7 @@ class Report_nilai_prakerin extends MY_Controller
 			'main' => "/v_private_topbar",
 			'header' => $data['Template'] . "/components/v_header",
 			'sidebar' => $data['Template'] . "/components/v_sidebar",
-			'navbar' => $data['Template'] . "/components/v_navbar",
+			'navbar' => $data['Template'] . "/components/v_navbar_topbar",
 			'footer' => $data['Template'] . "/components/v_footer",
 			'content' => "laporan/v_report_nilai_prakerin",
 			'javascript' => 'laporan/js/js_report_nilai_prakerin'

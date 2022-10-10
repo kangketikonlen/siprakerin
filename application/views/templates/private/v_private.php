@@ -9,6 +9,10 @@
 		</div>
 	</div>
 	<div class="wrapper">
+		<!-- Preloader -->
+		<div class="preloader flex-column justify-content-center align-items-center">
+			<img class="animation__shake" src="<?= base_url($this->session->userdata('AppLogo')) ?>" alt="Preloader-logo" height="120" width="120">
+		</div>
 		<!-- Navbar -->
 		<?php $this->load->view($Components['navbar']); ?>
 		<!-- /.navbar -->

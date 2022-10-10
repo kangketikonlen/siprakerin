@@ -38,7 +38,7 @@
 		})
 	});
 </script>
-<footer class="main-footer">
+<footer class="main-footer text-sm">
 	<strong>Copyright &copy; <?= date('Y') ?> <a href="<?= $this->session->userdata('UrlDev') ?>"><?= $this->session->userdata('DevInfo') ?></a>.</strong>
 	All rights reserved.
 	<div class="float-right d-none d-sm-inline-block">

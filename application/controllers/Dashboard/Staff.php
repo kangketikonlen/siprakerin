@@ -17,7 +17,7 @@ class Staff extends MY_Dashboard
 			'main' => "/v_private_topbar",
 			'header' => $data['Template'] . "/components/v_header",
 			'sidebar' => $data['Template'] . "/components/v_sidebar",
-			'navbar' => $data['Template'] . "/components/v_navbar",
+			'navbar' => $data['Template'] . "/components/v_navbar_topbar",
 			'footer' => $data['Template'] . "/components/v_footer",
 			'content' => str_replace("/", "/v_", $this->session->userdata('UrlDash')),
 			'javascript' => 'dashboard/js/js_staff'

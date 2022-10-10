@@ -1,8 +1,8 @@
-<div class="row">
-	<div class="col col-lg-12 mt-3">
+<div class="row justify-content-center">
+	<div class="col col-lg-12">
 		<div class="jumbotron py-3 text-center bg-transparent">
 			<h1>Hi, <?= $this->session->userdata('nama') ?> <i class="far fa-smile-wink"></i></h1>
-			<p class="lead">Silahkan jelajahi dengan menggunakan tombol navigasi di samping atau tekan tombol <i class=" fa fa-bars"></i> diatas untuk mengakses fitur.</p>
+			<p class="lead">Silahkan akses fitur dengan menggunakan tombol navigasi di bawah ini.</p>
 		</div>
 	</div>
 	<?php foreach ($this->global->get_menu() as $menu) : ?>
@@ -16,7 +16,7 @@
 									<h5 class="pt-4 pb-4" style="text-transform: uppercase;"><?= $submenu->submenu_nama ?></h5>
 								</div>
 								<div class="icon">
-									<i class="fa fa-check-circle"></i>
+									<i class="fa <?= $menu->menu_icon ?>"></i>
 								</div>
 							</div>
 						</a>

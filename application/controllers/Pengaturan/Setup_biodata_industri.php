@@ -17,7 +17,7 @@ class Setup_biodata_industri extends MY_Controller
 			'main' => "/v_private_topbar",
 			'header' => $data['Template'] . "/components/v_header",
 			'sidebar' => $data['Template'] . "/components/v_sidebar",
-			'navbar' => $data['Template'] . "/components/v_navbar",
+			'navbar' => $data['Template'] . "/components/v_navbar_topbar",
 			'footer' => $data['Template'] . "/components/v_footer",
 			'content' => "pengaturan/v_setup_biodata_industri",
 			'javascript' => 'pengaturan/js/js_setup_biodata_industri'

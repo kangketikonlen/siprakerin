@@ -19,6 +19,9 @@
 			</li>
 		<?php endif ?>
 		<li class="nav-item">
+			<span class="nav-link"><i class="fa fa-user-circle"></i> <?= $this->session->userdata('nama') ?></span>
+		</li>
+		<li class="nav-item">
 			<a class="nav-link" href="<?= base_url($this->session->userdata('UrlDash') . '/logout') ?>" role="button"><i class="fa fa-sign-out-alt"></i> Keluar</a>
 		</li>
 	</ul>
