@@ -1,9 +1,9 @@
 <div class="register-box w-25">
 	<div class="card card-outline card-primary">
 		<div class="card-header text-center">
-			<a href="../../index2.html" class="h4">
+			<span class="h4">
 				Sistem Tanda Tangan Digital <br /><?= $this->m->get_sysinfo()->info_registered ?>
-			</a>
+			</span>
 		</div>
 		<?= form_open("#", array('id' => 'Frm')) ?>
 		<div class="card-body">
