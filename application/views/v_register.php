@@ -1,13 +1,15 @@
-<div class="register-box w-25">
+<div class="register-box">
 	<div class="card card-outline card-primary">
 		<div class="card-header text-center">
-			<a href="../../index2.html" class="h4">
+			<span class="h4">
 				Formulir Registrasi Prakerin <br /><?= $this->m->get_sysinfo()->info_registered ?>
-			</a>
+			</span>
 		</div>
 		<?= form_open("#", array('id' => 'Frm')) ?>
 		<div class="card-body">
-			<p class="login-box-msg" style="font-size:small">Untuk pengalaman lebih baik, disarankan menggunakan browser <strong>chrome</strong> pada <strong>komputer pribadi (Laptop/PC Desktop)</strong></p>
+			<p class="login-box-msg" style="font-size:small">
+				Untuk pengalaman lebih baik, disarankan menggunakan browser <strong>chrome</strong> pada <strong>komputer pribadi (Laptop/PC Desktop)</strong>.
+			</p>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="form-group">
@@ -16,28 +18,18 @@
 						<input type="text" name="biodata_prakerin_nama" id="biodata_prakerin_nama" class="form-control" autocomplete="off" required="true" readonly="true">
 					</div>
 				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-12">
 					<div class="form-group">
-						<label for="biodata_prakerin_tempat_lahir">Tempat Lahir</label>
-						<input type="text" name="biodata_prakerin_tempat_lahir" id="biodata_prakerin_tempat_lahir" class="form-control" autocomplete="off" required="true">
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="form-group">
-						<label for="biodata_prakerin_tanggal_lahir">Tanggal Lahir</label>
-						<input type="date" name="biodata_prakerin_tanggal_lahir" id="biodata_prakerin_tanggal_lahir" class="form-control" autocomplete="off" required="true">
+						<label for="biodata_prakerin_kelas">Kelas</label>
+						<select name="biodata_prakerin_kelas" id="biodata_prakerin_kelas" class="form-control" required="true">
+							<option value=""></option>
+						</select>
 					</div>
 				</div>
 				<div class="col-lg-12">
 					<div class="form-group">
-						<label for="biodata_prakerin_alamat">Alamat</label>
-						<input type="text" name="biodata_prakerin_alamat" id="biodata_prakerin_alamat" class="form-control" autocomplete="off" required="true">
-					</div>
-				</div>
-				<div class="col-lg-12">
-					<div class="form-group">
-						<label for="biodata_prakerin_telepon">Nomor Telepon</label>
-						<input type="text" name="biodata_prakerin_telepon" id="biodata_prakerin_telepon" class="form-control" autocomplete="off" required="true">
+						<label for="biodata_prakerin_prodi">Program Studi/Jurusan</label>
+						<input type="text" name="biodata_prakerin_prodi" id="biodata_prakerin_prodi" class="form-control" autocomplete="off" required="true">
 					</div>
 				</div>
 			</div>
@@ -59,21 +51,34 @@
 <script>
 	var username = "<?= $this->input->get('user') ?>";
 
-	if (username) {
-		$("#biodata_prakerin_user_login").val(username);
-		var dataUrl = "<?= base_url('register/get_data/') ?>";
-		var dataReq = encodeURI("?username=" + username);
-		requests(dataUrl + dataReq, "GET").then(function(results) {
-			if (results) {
-				spreadEdit(results, $("#Frm"));
-			} else {
-				pesan("Siswa tidak di temukan dalam database!", "error", "", false);
-			}
-		}).catch(function(err) {
-			pesan("Error " + err.status, "error", "Request " + err.statusText);
-		});
-	} else {
-		pesan("Link pendaftaran hanya bisa di akses melalui portal siswa!", "error", "", false);
+	// option filter menu
+	var kelasMenu = $('#biodata_prakerin_kelas');
+	var optUrl = "<?= base_url('register/option_kelas/') ?>";
+	createSelect2(kelasMenu, "Pilih kelas");
+	requests(optUrl, "GET", {}).then(function(results) {
+		populateOption(kelasMenu, results);
+		loadData();
+	}).catch(function(err) {
+		pesan("Error " + err.status, "error", "Request " + err.statusText);
+	});
+
+	function loadData() {
+		if (username) {
+			$("#biodata_prakerin_user_login").val(username);
+			var dataUrl = "<?= base_url('register/get_data/') ?>";
+			var dataReq = encodeURI("?username=" + username);
+			requests(dataUrl + dataReq, "GET").then(function(results) {
+				if (results) {
+					spreadEdit(results, $("#Frm"));
+				} else {
+					pesan("Siswa tidak di temukan dalam database!", "error", "", false);
+				}
+			}).catch(function(err) {
+				pesan("Error " + err.status, "error", "Request " + err.statusText);
+			});
+		} else {
+			pesan("Link pendaftaran hanya bisa di akses melalui portal siswa!", "error", "", false);
+		}
 	}
 
 	$('#Frm').submit(function(e) {

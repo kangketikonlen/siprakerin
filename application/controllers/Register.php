@@ -31,6 +31,7 @@ class Register extends CI_Controller
 		$data = $this->m->get_data();
 		if (!empty($data)) {
 			$data['biodata_prakerin_nama'] = $data['siswa_nama'];
+			$data['biodata_prakerin_kelas'] = $data['kelas_deskripsi'];
 			echo json_encode($data);
 		}
 	}
@@ -72,7 +73,7 @@ class Register extends CI_Controller
 		$session = array(
 			'Instansi' => $this->m->get_instansi()->instansi_id,
 			'AppLogo' => $this->m->get_instansi()->instansi_logo,
-			'AppInfo' => $this->m->get_sysinfo()->info_name . ' ' . $this->m->get_instansi()->instansi_nama,
+			'AppInfo' => $this->m->get_sysinfo()->info_name,
 			'DevInfo' => $this->m->get_sysinfo()->info_devs,
 			'UrlDev' => $this->m->get_sysinfo()->info_devs_url,
 			'LoggedIn' => TRUE
@@ -101,5 +102,11 @@ class Register extends CI_Controller
 		$session['UrlDash'] = 'dashboard/staff';
 
 		$this->session->set_userdata($session);
+	}
+
+	public function option_kelas()
+	{
+		$response = $this->m->option_kelas();
+		echo json_encode($response);
 	}
 }

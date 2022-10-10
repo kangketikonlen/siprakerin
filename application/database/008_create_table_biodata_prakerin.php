@@ -22,20 +22,32 @@ class Migration_Create_table_biodata_prakerin extends CI_Migration
 				'type' => 'VARCHAR',
 				'constraint' => 128,
 			),
-			$this->prefix . 'tempat_lahir' => array(
+			$this->prefix . 'kelas' => array(
 				'type' => 'VARCHAR',
 				'constraint' => 128,
 			),
+			$this->prefix . 'prodi' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 128,
+			),
+			$this->prefix . 'tempat_lahir' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 128,
+				'null' => TRUE
+			),
 			$this->prefix . 'tanggal_lahir' => array(
-				'type' => 'DATE'
+				'type' => 'DATE',
+				'null' => TRUE
 			),
 			$this->prefix . 'alamat' => array(
 				'type' => 'VARCHAR',
 				'constraint' => 128,
+				'null' => TRUE
 			),
 			$this->prefix . 'telepon' => array(
 				'type' => 'CHAR',
 				'constraint' => 18,
+				'null' => TRUE
 			),
 			$this->prefix . 'nama_ayah' => array(
 				'type' => 'VARCHAR',
