@@ -29,7 +29,7 @@ class Migration_Create_table_kehadiran extends CI_Migration
 				'type' => 'TIME',
 				'null' => TRUE
 			),
-			$this->prefix . 'validitor' => array(
+			$this->prefix . 'validator' => array(
 				'type' => 'VARCHAR',
 				'constraint' => 128,
 			),

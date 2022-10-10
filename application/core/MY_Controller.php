@@ -27,9 +27,11 @@ class MY_Controller extends CI_Controller
 		$level = $this->session->userdata('level_id');
 		$roles = explode(",", $submenu->submenu_roles);
 		if (!array_search($level, $roles)) {
-			$this->session->set_userdata('LoggedIn', false);
-			$this->session->set_userdata('pesan', 'Anda mengakses modul yang tidak di izinkan!');
-			redirect('portal');
+			if ($this->uri->segment(3) != 'options') {
+				$this->session->set_userdata('LoggedIn', false);
+				$this->session->set_userdata('pesan', 'Anda mengakses modul yang tidak di izinkan!');
+				redirect('portal');
+			}
 		}
 	}
 }

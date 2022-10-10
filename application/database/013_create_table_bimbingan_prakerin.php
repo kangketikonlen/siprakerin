@@ -1,9 +1,9 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Migration_Create_table_agenda_kegiatan extends CI_Migration
+class Migration_Create_table_bimbingan_prakerin extends CI_Migration
 {
-	protected $table_name = "ak_data_histori_agenda_kegiatan";
-	protected $prefix = "histori_agenda_kegiatan_";
+	protected $table_name = "ak_data_histori_bimbingan_prakerin";
+	protected $prefix = "bimbingan_prakerin_";
 
 	private function generate_fields()
 	{
@@ -14,7 +14,12 @@ class Migration_Create_table_agenda_kegiatan extends CI_Migration
 				'unsigned' => TRUE,
 				'auto_increment' => TRUE
 			),
-			'biodata_pendaftar_id' => array(
+			'pembimbing_sekolah_id' => array(
+				'type' => 'BIGINT',
+				'constraint' => 20,
+				'unsigned' => TRUE,
+			),
+			'biodata_prakerin_id' => array(
 				'type' => 'BIGINT',
 				'constraint' => 20,
 				'unsigned' => TRUE,
@@ -22,12 +27,14 @@ class Migration_Create_table_agenda_kegiatan extends CI_Migration
 			$this->prefix . 'tanggal' => array(
 				'type' => 'DATE'
 			),
-			$this->prefix . 'pekerjaan' => array(
-				'type' => 'LONGTEXT'
+			$this->prefix . 'keterangan' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 128,
 			),
 			$this->prefix . 'validator' => array(
 				'type' => 'VARCHAR',
 				'constraint' => 128,
+				'null' => TRUE
 			),
 			'created_by' => array(
 				'type' => 'VARCHAR',

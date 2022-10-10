@@ -36,4 +36,11 @@ class Daftar_biodata_siswa extends MY_Controller
 		$result = $this->m->get_data();
 		echo json_encode($result);
 	}
+
+	public function options()
+	{
+		$searchTerm = $this->input->post('searchTerm');
+		$response = $this->m->options($searchTerm);
+		echo json_encode($response);
+	}
 }

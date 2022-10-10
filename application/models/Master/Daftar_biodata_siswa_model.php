@@ -17,4 +17,17 @@ class Daftar_biodata_siswa_model extends CI_Model
 		$this->db->where($this->biodata_prakerin . '.biodata_prakerin_id', $this->input->get('biodata_prakerin_id'));
 		return $this->db->get($this->biodata_prakerin)->row();
 	}
+
+	public function options()
+	{
+		$this->db->where($this->biodata_prakerin . '.deleted', FALSE);
+		$opt = $this->db->get($this->biodata_prakerin)->result();
+
+		$data = array();
+		foreach ($opt as $opt) {
+			$data[] = array("id" => $opt->biodata_prakerin_id, "text" => $opt->biodata_prakerin_nama);
+		}
+
+		return $data;
+	}
 }
