@@ -4,6 +4,34 @@
 			<?= form_open("#", array('id' => 'Frm')) ?>
 			<div class="card-body">
 				<div class="row">
+					<!-- Start form data kelas -->
+					<div class="col-lg-12">
+						<div class="row justify-content-center">
+							<div class="col-lg-8">
+								<div class="card">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="form-group">
+													<label for="biodata_prakerin_kelas">Kelas</label>
+													<select name="biodata_prakerin_kelas" id="biodata_prakerin_kelas" class="form-control" required="true">
+														<option value=""></option>
+													</select>
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="form-group">
+													<label for="biodata_prakerin_prodi">Program Studi/Jurusan</label>
+													<input type="text" name="biodata_prakerin_prodi" id="biodata_prakerin_prodi" class="form-control" autocomplete="off" required="true">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End form data kelas -->
 					<!-- Start form data pribadi -->
 					<div class="col-lg-4">
 						<div class="card">

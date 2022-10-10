@@ -20,7 +20,7 @@
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Main content -->
-			<div class="content pt-5">
+			<div class="content pt-4">
 				<div class="container">
 					<?php $this->load->view($Components['content']); ?>
 				</div>

@@ -40,4 +40,10 @@ class Setup_biodata_siswa extends MY_Controller
 		$result = $this->m->get_data();
 		echo json_encode($result);
 	}
+
+	public function option_kelas()
+	{
+		$response = $this->m->option_kelas();
+		echo json_encode($response);
+	}
 }
