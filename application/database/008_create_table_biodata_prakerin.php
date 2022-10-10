@@ -98,8 +98,8 @@ class Migration_Create_table_biodata_prakerin extends CI_Migration
 				'null' => TRUE
 			),
 			$this->prefix . 'status' => array(
-				'type' => 'ENUM("Isi Biodata","Menunggu Persetujuan", "Disetujui")',
-				'default' => "Isi Biodata",
+				'type' => 'ENUM("Proses", "Disetujui", "Tidak Disetujui")',
+				'default' => "Proses",
 				'null' => FALSE
 			),
 			'created_by' => array(
