@@ -63,6 +63,26 @@
 						</div>
 					</div>
 					<!-- End Form Kehadiran -->
+				<?php elseif ($this->input->get('type') == "bimbingan") : ?>
+					<div class="col-lg-12">
+						<div class="form-group">
+							<label for="bimbingan_prakerin_tanggal">Tanggal</label>
+							<input type="hidden" name="bimbingan_prakerin_id" id="bimbingan_prakerin_id">
+							<input type="date" name="bimbingan_prakerin_tanggal" id="bimbingan_prakerin_tanggal" class="form-control" autocomplete="off" disabled="true">
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="form-group">
+							<label for="biodata_prakerin_nama">Siswa Prakerin</label>
+							<input type="text" name="biodata_prakerin_nama" id="biodata_prakerin_nama" class="form-control" autocomplete="off" disabled="true">
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="form-group">
+							<label for="bimbingan_prakerin_keterangan">Keterangan</label>
+							<textarea name="bimbingan_prakerin_keterangan" id="bimbingan_prakerin_keterangan" class="form-control" rows="5" autocomplete="off" disabled="true"></textarea>
+						</div>
+					</div>
 				<?php endif ?>
 			</div>
 			<p class="login-box-msg" style="font-size:small">
@@ -121,6 +141,23 @@
 		}).catch(function(err) {
 			pesan("Error " + err.status, "error", "Request " + err.statusText);
 		});
+	} else if (type == "bimbingan") {
+		$("#bimbingan_prakerin_id").val(id);
+		var dataUrl = "<?= base_url('digisign/get_data_bimbingan/') ?>";
+		var dataReq = encodeURI("?id=" + id);
+		requests(dataUrl + dataReq, "GET").then(function(results) {
+			if (results) {
+				var data = JSON.parse(results);
+				if (data.bimbingan_prakerin_validator) {
+					$("#validator").html(`Signed, <strong>` + truncate(data.bimbingan_prakerin_validator, 10) + `</strong>`);
+				}
+				spreadEdit(results, $("#Frm"));
+			} else {
+				pesan("Data tidak di temukan dalam database!", "error", "", false);
+			}
+		}).catch(function(err) {
+			pesan("Error " + err.status, "error", "Request " + err.statusText);
+		});
 	} else {
 		pesan("Link hanya bisa di akses melalui QRCode!", "error", "", false);
 	}
@@ -131,6 +168,8 @@
 			var dataUrl = "<?= base_url('digisign/simpan') ?>";
 		} else if (type == "agenda") {
 			var dataUrl = "<?= base_url('digisign/simpan_agenda') ?>";
+		} else if (type == "bimbingan") {
+			var dataUrl = "<?= base_url('digisign/simpan_bimbingan') ?>";
 		}
 		var dataReq = new FormData(this);
 		var dataUsr = encodeURI("?id=" + id);

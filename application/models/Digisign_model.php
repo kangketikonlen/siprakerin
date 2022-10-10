@@ -6,6 +6,7 @@ class Digisign_model extends CI_Model
 	protected $biodata_prakerin = "ak_data_master_biodata_prakerin";
 	protected $histori_kehadiran = "ak_data_histori_kehadiran";
 	protected $histori_agenda_kegiatan = "ak_data_histori_agenda_kegiatan";
+	protected $histori_bimbingan_prakerin = "ak_data_histori_bimbingan_prakerin";
 
 	public function get_sysinfo()
 	{
@@ -39,6 +40,13 @@ class Digisign_model extends CI_Model
 		return $this->db->get($this->histori_agenda_kegiatan)->row_array();
 	}
 
+	public function get_data_bimbingan()
+	{
+		$this->db->join($this->biodata_prakerin, $this->biodata_prakerin . '.biodata_prakerin_id=' . $this->histori_bimbingan_prakerin . '.biodata_prakerin_id');
+		$this->db->where($this->histori_bimbingan_prakerin . '.bimbingan_prakerin_id', $this->input->get('id'));
+		return $this->db->get($this->histori_bimbingan_prakerin)->row_array();
+	}
+
 	public function simpan($data)
 	{
 		$this->db->where($this->histori_kehadiran . '.histori_kehadiran_id', $this->input->post('histori_kehadiran_id'));
@@ -49,5 +57,11 @@ class Digisign_model extends CI_Model
 	{
 		$this->db->where($this->histori_agenda_kegiatan . '.histori_agenda_kegiatan_id', $this->input->post('histori_agenda_kegiatan_id'));
 		return $this->db->update($this->histori_agenda_kegiatan, $data);
+	}
+
+	public function simpan_bimbingan($data)
+	{
+		$this->db->where($this->histori_bimbingan_prakerin . '.bimbingan_prakerin_id', $this->input->post('bimbingan_prakerin_id'));
+		return $this->db->update($this->histori_bimbingan_prakerin, $data);
 	}
 }

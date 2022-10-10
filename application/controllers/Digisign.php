@@ -42,6 +42,14 @@ class Digisign extends CI_Controller
 		}
 	}
 
+	public function get_data_bimbingan()
+	{
+		$data = $this->m->get_data_bimbingan();
+		if (!empty($data)) {
+			echo json_encode($data);
+		}
+	}
+
 	public function simpan()
 	{
 		$this->load->library('user_agent');
@@ -62,6 +70,18 @@ class Digisign extends CI_Controller
 		$data['updated_by'] = "Pembimbing Industri";
 		$data['updated_date'] = date('Y-m-d H:i:s');
 		$this->m->simpan_agenda($data);
+
+		echo save_success();
+	}
+
+	public function simpan_bimbingan()
+	{
+		$this->load->library('user_agent');
+
+		$data['bimbingan_prakerin_validator'] = hash_hmac('sha256', $this->agent->agent_string(), 'kangketik2020.woke');
+		$data['updated_by'] = "Pembimbing Industri";
+		$data['updated_date'] = date('Y-m-d H:i:s');
+		$this->m->simpan_bimbingan($data);
 
 		echo save_success();
 	}
