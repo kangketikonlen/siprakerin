@@ -1,12 +1,15 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
- 
-//untuk mengetahui bulan bulan
-if ( ! function_exists('bulan'))
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+function count_days($first, $last)
 {
+    $datediff = $first - $last;
+    return round($datediff / (60 * 60 * 24));
+}
+//untuk mengetahui bulan bulan
+if (!function_exists('bulan')) {
     function bulan($bln)
     {
-        switch ($bln)
-        {
+        switch ($bln) {
             case 1:
                 return "Januari";
                 break;
@@ -45,20 +48,17 @@ if ( ! function_exists('bulan'))
                 break;
         }
     }
-
 }
- 
+
 //format tanggal yyyy-mm-dd
-if ( ! function_exists('tgl_indo'))
-{
+if (!function_exists('tgl_indo')) {
     function tgl_indo($tgl)
     {
-        $ubah = gmdate($tgl, time()+60*60*8);
-        $pecah = explode("-",$ubah);  //memecah variabel berdasarkan -
+        $ubah = gmdate($tgl, time() + 60 * 60 * 8);
+        $pecah = explode("-", $ubah);  //memecah variabel berdasarkan -
         $tanggal = $pecah[2];
         $bulan = bulan($pecah[1]);
         $tahun = $pecah[0];
-        return $tanggal.' '.$bulan.' '.$tahun; //hasil akhir
+        return $tanggal . ' ' . $bulan . ' ' . $tahun; //hasil akhir
     }
 }
- 

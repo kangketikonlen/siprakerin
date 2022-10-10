@@ -22,6 +22,10 @@ class Siswa extends MY_Dashboard
 			'content' => str_replace("/", "/v_", $this->session->userdata('UrlDash')),
 			'javascript' => 'dashboard/js/js_siswa'
 		);
+		$data['peserta'] = $this->m->get_peserta();
+		$data['industri'] = $this->m->get_industri();
+		$data['is_presence'] = $this->m->get_kehadiran_today();
+		$data['is_journal'] = $this->m->get_agenda_today();
 		$this->load->view('v_main', $data);
 	}
 
