@@ -64,7 +64,7 @@
 									<?php if (!empty($is_journal)) : ?>
 										Kamu udah <strong class=" text-teal">mengisi agenda</strong> hari ini. Jangan lupa juga, meminta tanda tangan pembimbing!
 									<?php else : ?>
-										Duh, kamu belum <strong class="text-teal">mengisi agenda</strong>. Jangan lupa <strong class="text-teal">mengisi agenda</strong> setiap hari ya..
+										Duh, kamu belum <strong class="text-teal">mengisi agenda</strong>. Jangan lupa isi agenda setiap hari. Semangat, tinggal <strong class="text-lime"><?= count_days(date("Y-m-d"), $industri->biodata_industri_tanggal_selesai) ?> hari</strong> lagi nih..
 									<?php endif ?>
 								</div>
 							</div>

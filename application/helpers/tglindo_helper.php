@@ -2,7 +2,7 @@
 
 function count_days($first, $last)
 {
-    $datediff = $first - $last;
+    $datediff = strtotime($last) - strtotime($first);
     return round($datediff / (60 * 60 * 24));
 }
 //untuk mengetahui bulan bulan
