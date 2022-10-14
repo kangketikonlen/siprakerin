@@ -41,7 +41,8 @@ $autoload['helper'] = array(
 	'form',
 	'security',
 	'tglindo',
-	'pesan'
+	'pesan',
+	'string'
 );
 
 /*

@@ -61,7 +61,7 @@ class Report_nilai_prakerin extends MY_Controller
 
 	public function create_qrcode()
 	{
-		$data_qrcode = base_url('penilaian?id=' . $this->input->get('id'));
+		$data_qrcode = base_url('register/guest_validator?id=' . $this->input->get('id'));
 		$result = Builder::create()
 			->writer(new PngWriter())
 			->writerOptions([])

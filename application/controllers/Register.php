@@ -68,6 +68,15 @@ class Register extends CI_Controller
 		}
 	}
 
+	public function guest_validator()
+	{
+		$this->load->library('user_agent');
+		$data['id'] = $this->input->get('id');
+		$data['validator'] = hash_hmac('sha256', $this->agent->agent_string(), 'kangketik2020.woke');
+		$this->simpan_session_guest($data);
+		redirect(base_url());
+	}
+
 	private function default_session()
 	{
 		$session = array(
@@ -100,6 +109,18 @@ class Register extends CI_Controller
 		$session['nama'] = $data['pembimbing_sekolah_nama'];
 		$session['level_id'] = 4;
 		$session['UrlDash'] = 'dashboard/staff';
+
+		$this->session->set_userdata($session);
+	}
+
+	private function simpan_session_guest($data)
+	{
+		$session = $this->default_session();
+		$session['id'] = $data['id'];
+		$session['nama'] = split_string($data['validator'], 5);
+		$session['validator'] = $data['validator'];
+		$session['level_id'] = 5;
+		$session['UrlDash'] = 'dashboard/pembimbing_industri';
 
 		$this->session->set_userdata($session);
 	}
