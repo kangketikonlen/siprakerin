@@ -93,6 +93,8 @@ class Kelola_agenda_kegiatan extends MY_Controller
 			->size(500)
 			->margin(0)
 			->roundBlockSizeMode(new RoundBlockSizeModeMargin())
+			->logoPath('.' . $this->session->userdata('AppLogo'))
+			->logoResizeToWidth(80)
 			->build();
 		return $result->getDataUri();
 	}
