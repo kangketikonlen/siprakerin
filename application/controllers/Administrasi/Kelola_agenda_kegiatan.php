@@ -90,11 +90,9 @@ class Kelola_agenda_kegiatan extends MY_Controller
 			->data($data_qrcode)
 			->encoding(new Encoding('UTF-8'))
 			->errorCorrectionLevel(new ErrorCorrectionLevelHigh())
-			->size(200)
+			->size(500)
 			->margin(0)
 			->roundBlockSizeMode(new RoundBlockSizeModeMargin())
-			->logoPath('.' . $this->session->userdata('AppLogo'))
-			->logoResizeToWidth(100)
 			->build();
 		return $result->getDataUri();
 	}
