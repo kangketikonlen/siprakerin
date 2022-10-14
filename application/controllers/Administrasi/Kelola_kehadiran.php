@@ -95,11 +95,11 @@ class Kelola_kehadiran extends MY_Controller
 			->data($data_qrcode)
 			->encoding(new Encoding('UTF-8'))
 			->errorCorrectionLevel(new ErrorCorrectionLevelHigh())
-			->size(500)
+			->size(200)
 			->margin(0)
 			->roundBlockSizeMode(new RoundBlockSizeModeMargin())
 			->logoPath('.' . $this->session->userdata('AppLogo'))
-			->logoResizeToWidth(250)
+			->logoResizeToWidth(100)
 			->build();
 		return $result->getDataUri();
 	}
