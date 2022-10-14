@@ -30,4 +30,3 @@ jobs:
             rsync -a --progress ${{ secrets.PROD_REPO_DIR }}/vendor ${{ secrets.PROD_ROOT_DIR }}
             rsync -a --progress ${{ secrets.PROD_REPO_DIR }}/index.php ${{ secrets.PROD_ROOT_DIR }}
             rsync -a --progress ${{ secrets.PROD_REPO_DIR }}/.htaccess ${{ secrets.PROD_ROOT_DIR }}
-            rsync -a --progress ${{ secrets.PROD_REPO_DIR }}/Robots.txt ${{ secrets.PROD_ROOT_DIR }}
