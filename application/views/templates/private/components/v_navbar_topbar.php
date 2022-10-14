@@ -19,9 +19,15 @@
 			<li class="nav-item">
 				<span class="nav-link"><i class="fa fa-user-circle"></i> <?= $this->session->userdata('nama') ?></span>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url($this->session->userdata('UrlDash') . '/logout') ?>" role="button"><i class="fa fa-sign-out-alt"></i> Keluar</a>
-			</li>
+			<?php if ($this->session->userdata('Instansi') == 1) : ?>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:8080/sims" role="button"><i class="fa fa-sign-out-alt"></i> Keluar</a>
+				</li>
+			<?php else : ?>
+				<li class="nav-item">
+					<a class="nav-link" href="https://sisfo.smkattaqwa05kebalen.sch.id" role="button"><i class="fa fa-sign-out-alt"></i> Keluar</a>
+				</li>
+			<?php endif ?>
 		</ul>
 	</div>
 </nav>
