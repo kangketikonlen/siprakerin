@@ -28,6 +28,6 @@ class Staff extends MY_Dashboard
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('portal');
+		redirect('https://sisfo.smkattaqwa05kebalen.sch.id');
 	}
 }
