@@ -79,6 +79,7 @@ class Register extends CI_Controller
 	public function guest_validator()
 	{
 		$this->load->library('user_agent');
+		$this->session->sess_destroy();
 		$data['id'] = $this->input->get('id');
 		$data['validator'] = hash_hmac('sha256', $this->agent->agent_string(), 'kangketik2020.woke');
 		$this->simpan_session_guest($data);
