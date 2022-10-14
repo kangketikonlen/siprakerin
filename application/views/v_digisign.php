@@ -1,4 +1,4 @@
-<div class="register-box w-25">
+<div class="register-box">
 	<div class="card card-outline card-primary">
 		<div class="card-header text-center">
 			<span class="h4">
