@@ -23,6 +23,10 @@ class Register extends CI_Controller
 		);
 		$data['Info'] = $this->m->get_sysinfo();
 		$data['Instansi'] = $this->m->get_instansi();
+
+		if (!empty($this->input->get('access'))) {
+			$data['Components']['content'] = 'v_forbidden';
+		}
 		$this->load->view('v_main', $data);
 	}
 
@@ -63,7 +67,11 @@ class Register extends CI_Controller
 				$this->simpan_session_staff($data);
 				redirect(base_url());
 			} else {
-				redirect(base_url('register?user=' . $this->input->get('username')));
+				if (empty($this->input->get('staff'))) {
+					redirect(base_url('register?user=' . $this->input->get('username')));
+				} else {
+					redirect(base_url('register?access=' . hash_hmac('sha256', $this->agent->agent_string(), 'kangketik2020.woke')));
+				}
 			}
 		}
 	}

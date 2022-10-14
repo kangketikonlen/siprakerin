@@ -32,6 +32,10 @@ class Siswa extends MY_Dashboard
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('https://sisfo.smkattaqwa05kebalen.sch.id');
+		if ($this->session->userdata('Instansi') == 1) {
+			redirect('http://localhost:8080/sims');
+		} else {
+			redirect('https://sisfo.smkattaqwa05kebalen.sch.id');
+		}
 	}
 }
