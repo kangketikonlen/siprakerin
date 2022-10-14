@@ -72,7 +72,7 @@ class Report_nilai_prakerin extends MY_Controller
 			->margin(0)
 			->roundBlockSizeMode(new RoundBlockSizeModeMargin())
 			->logoPath('.' . $this->session->userdata('AppLogo'))
-			->logoResizeToWidth(250)
+			->logoResizeToWidth(80)
 			->build();
 		return $result->getDataUri();
 	}
