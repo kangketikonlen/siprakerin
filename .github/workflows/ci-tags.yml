@@ -1,0 +1,18 @@
+on:
+  push:
+    branches: [devs]
+
+name: 🔖 Create System Tags
+jobs:
+  create-tags:
+    name: 🔖 Running Tags Scripts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Create tag
+      uses: kangketikonlen/base-tagging@v3.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
