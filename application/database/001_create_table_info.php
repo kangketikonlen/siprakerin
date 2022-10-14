@@ -75,11 +75,11 @@ class Migration_Create_table_info extends CI_Migration
 	private function seed_sample()
 	{
 		$data = array(
-			'info_name' => 'SISKAMLINGCI',
-			'info_full_name' => 'Sistem Keamanan Lingkungan Codeigniter',
+			'info_name' => 'SIPRAKERIN',
+			'info_full_name' => 'Sistem Informasi Praktek Kerja Industri',
 			'info_devs' => 'Kangketik Dev',
 			'info_devs_url' => 'https://kangketik.web.id/',
-			'info_registered' => 'Kangketik',
+			'info_registered' => 'SMK At-Taqwa 05 Kebalen',
 			'info_status_sosmed' => 0,
 		);
 		$this->db->insert($this->table_name, $data);

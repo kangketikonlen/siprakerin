@@ -70,7 +70,7 @@ class Migration_Create_table_level extends CI_Migration
 				'level_nama' => 'Master',
 				'level_url' => 'dashboard/landing',
 				'level_icon' => 'fa-database',
-				'level_background' => '#53B8BB',
+				'level_background' => '#778beb',
 				'level_type' => 'Landing',
 				'level_show_landing' => '0,1'
 			),
@@ -78,7 +78,31 @@ class Migration_Create_table_level extends CI_Migration
 				'level_nama' => 'Administrator',
 				'level_url' => 'dashboard/administrator',
 				'level_icon' => 'fa-toolbox',
-				'level_background' => '#D79771',
+				'level_background' => '#778beb',
+				'level_type' => 'Dashboard',
+				'level_show_landing' => '0,1'
+			),
+			array(
+				'level_nama' => 'Peserta Prakerin',
+				'level_url' => 'dashboard/siswa',
+				'level_icon' => 'fa-user',
+				'level_background' => '#778beb',
+				'level_type' => 'Dashboard',
+				'level_show_landing' => '0,1'
+			),
+			array(
+				'level_nama' => 'Pembimbing Sekolah',
+				'level_url' => 'dashboard/staff',
+				'level_icon' => 'fa-user',
+				'level_background' => '#778beb',
+				'level_type' => 'Dashboard',
+				'level_show_landing' => '0,1'
+			),
+			array(
+				'level_nama' => 'Pembimbing Industri',
+				'level_url' => 'dashboard/pembimbing_industri',
+				'level_icon' => 'fa-user',
+				'level_background' => '#778beb',
 				'level_type' => 'Dashboard',
 				'level_show_landing' => '0,1'
 			),
