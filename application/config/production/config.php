@@ -383,7 +383,7 @@ $config['sess_cookie_name'] = 'siskamlingci_';
 $config['sess_expiration'] = 7200;
 // $config['sess_save_path'] = 'ak_data_system_log';
 $config['sess_save_path'] = APPPATH . 'sessions';
-$config['sess_match_ip'] = TRUE;
+$config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = TRUE;
 
